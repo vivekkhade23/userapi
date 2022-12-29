@@ -5,8 +5,8 @@ const bcrypt=require("bcrypt")
 
 userRouter.post("/signup",async(req,res)=>{
     try{ 
-    const {name,email,password}=req.body
-    let user = new UserModel({name,email, password });
+    const {email,password,age}=req.body
+    let user = new UserModel({email, password,age });
     user = await user.save();
     res.send(user)
     }
