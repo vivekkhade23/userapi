@@ -18,9 +18,10 @@ userRouter.post("/signup",async(req,res)=>{
 
 
 userRouter.post("/login",async (req,res)=>{
-    try{ const { email, password } = req.body;
-     const u = await UserModel.findOne({ email, password });
-     res.send(u)
+    try{ 
+        const { email, password } = req.body;
+     const user = await UserModel.findOne({ email, password });
+     res.send(user)
      }catch(e){
          res.status(401).send({ message: "Login Failed",error:e })
      }
